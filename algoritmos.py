@@ -42,7 +42,7 @@ class Classe:
                 lista[k] = right[j]
                 j += 1
 
-        print("Passo merge:", lista[inicio:fim])
+        return
         
         
         
@@ -63,7 +63,7 @@ class Classe:
                     aux = vetor[j]
                     vetor[j] = vetor[j+1]
                     vetor[j+1] = aux  
-        return vetor
+        return
     
     def selectSort(vetor):
         qtd=len(vetor)
@@ -79,7 +79,7 @@ class Classe:
                 aux = vetor[i]
                 vetor[i] = vetor[menor]
                 vetor[menor] = aux
-        return vetor
+        return
     
     def insertSort(vetor):
         qtd=len(vetor)
@@ -90,4 +90,4 @@ class Classe:
                 vetor[j+1] = vetor[j]
                 j-=1
             vetor[j+1] = marcado
-        return vetor
+        return

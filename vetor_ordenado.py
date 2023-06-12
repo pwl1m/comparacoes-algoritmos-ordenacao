@@ -13,13 +13,7 @@ class vetorOrdenado:
     else:
       for i in range(self._ultimaP+1):
         print(f'posição: {i} valor: {self._valores[i]}')
-      return "a"
-
-  def pesquisa(self,n):
-    for i in range(self._ultimaP+1):
-      if n == self._valores[i]:
-        return i
-    return -1
+      return
 
   def insere(self, n):
 # verifica se o vetor esta cheio
@@ -34,11 +28,16 @@ class vetorOrdenado:
 # insere N no espaço onde estava o primeiro valor maior que N e aumenta a ultima posição valida, apos isso retorna para parar o laço
         self._ultimaP+=1
         self._valores[i] = n
-        return "b"
+        return
 # se o vetor estiver vazio o valor é inserido na primeira posição disponivel (0)
     self._ultimaP+=1
     self._valores[self._ultimaP] = n
-    return "b"
+    return
+  
+  def insereOrdenado(valores):
+    vetor = vetorOrdenado(len(valores))
+    for i in range(len(valores)):
+      vetor.insere(valores[i])
 
   def exclui(self, n):
     for i in range (self._ultimaP):
@@ -48,6 +47,12 @@ class vetorOrdenado:
         self._ultimaP-=1
         return "c"
     return-1
+  
+  def pesquisaSimples(self,n):
+    for i in range(self._ultimaP+1):
+      if n == self._valores[i]:
+        return i
+    return -1
 
   def pesquisaBinaria (self, n) :
     limite_inferior = 0
