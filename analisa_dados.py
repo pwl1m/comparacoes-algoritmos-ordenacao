@@ -21,7 +21,7 @@ class Analisa:
         totalTime = 0
         for i in range(repeticoes):
             start = time.time()
-            vetor = v_o(100)
+            vetor = v_o(n)
             valores = Analisa.geraAleatorio(n)
             for j in range(len(valores)):
                 vetor.insere(valores[j])
