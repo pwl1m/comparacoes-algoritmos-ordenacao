@@ -1,35 +1,34 @@
-import numpy as np
-import time
 from algoritmos import Classe
-from vetor_ordenado import vetorOrdenado as v_o
-
-def calculaTempo(algoritmo, repeticoes = 1000):
-        totalTime = 0
-        for i in range(repeticoes):
-            #para cada repetição do laço, um vetor aleatório de 100 poisções com valores entre 0 e 999 é gerado
-            start = time.time()
-            vetor = np.random.randint(1000, size=100)
-            algoritmo(vetor)
-            totalTime += time.time() - start
-        return totalTime / repeticoes
-    
-def criaOrdenado(repeticoes = 1000):
-    totalTime = 0
-    for i in range(repeticoes):
-        start = time.time()
-        vetor = v_o(100)
-        valores = np.random.randint(1000, size=100)
-        for j in range(len(valores)):
-            vetor.insere(valores[j])
-            totalTime+= time.time() - start
-    return totalTime / repeticoes
+from analisa_dados import Analisa
         
 if __name__ == "__main__":
-    
-    print("1000 vetores")
-    print("100 posições")
-    print("média de tempo de criação de vetor ordenado  {:.16f} segundos".format(criaOrdenado()))
-    print("média de tempo de mergeSort  {:.16f} segundos".format(calculaTempo(Classe.mergesort)))
-    print("média de tempo de bubbleSort {:.16f} segundos".format(calculaTempo(Classe.bubbleSort)))
-    print("média de tempo de selectSort {:.16f} segundos".format(calculaTempo(Classe.selectSort)))
-    print("média de tempo de insertSort {:.16f} segundos".format(calculaTempo(Classe.insertSort)))
+    print("_____RELATÓRIO DE VELOCIDADE E EFICIÊNCIA_____")
+    print(" ")
+    print("Serão analisados:")
+    print(" ")
+    print("Vetores com 10 posições com valores de 0 a 999")
+    print("média de tempo de criação de vetor ordenado  {:.16f} segundos".format(Analisa.criaOrdenado(10)))
+    print("média de tempo de mergeSort  {:.16f} segundos".format(Analisa.calculaTempo(Classe.mergesort, 10)))
+    print("média de tempo de shellSort  {:.16f} segundos".format(Analisa.calculaTempo(Classe.shellSort, 10)))
+    print("média de tempo de quickSort  {:.16f} segundos".format(Analisa.calculaTempo(Classe.quickSort, 10)))
+    print("média de tempo de bubbleSort {:.16f} segundos".format(Analisa.calculaTempo(Classe.bubbleSort, 10)))
+    print("média de tempo de selectSort {:.16f} segundos".format(Analisa.calculaTempo(Classe.selectSort, 10)))
+    print("média de tempo de insertSort {:.16f} segundos".format(Analisa.calculaTempo(Classe.insertSort, 10)))
+    print(" ")
+    print("Vetores com 100 posições com valores de 0 a 999")
+    print("média de tempo de criação de vetor ordenado  {:.16f} segundos".format(Analisa.criaOrdenado(100)))
+    print("média de tempo de mergeSort  {:.16f} segundos".format(Analisa.calculaTempo(Classe.mergesort, 100)))
+    print("média de tempo de shellSort  {:.16f} segundos".format(Analisa.calculaTempo(Classe.shellSort, 100)))
+    print("média de tempo de quickSort  {:.16f} segundos".format(Analisa.calculaTempo(Classe.quickSort, 100)))
+    print("média de tempo de bubbleSort {:.16f} segundos".format(Analisa.calculaTempo(Classe.bubbleSort, 100)))
+    print("média de tempo de selectSort {:.16f} segundos".format(Analisa.calculaTempo(Classe.selectSort, 100)))
+    print("média de tempo de insertSort {:.16f} segundos".format(Analisa.calculaTempo(Classe.insertSort, 100)))
+    print(" ")
+    print("Vetores com 1000 posições com valores de 0 a 999")
+    print("média de tempo de criação de vetor ordenado  {:.16f} segundos".format(Analisa.criaOrdenado(1000)))
+    print("média de tempo de mergeSort  {:.16f} segundos".format(Analisa.calculaTempo(Classe.mergesort, 1000)))
+    print("média de tempo de shellSort  {:.16f} segundos".format(Analisa.calculaTempo(Classe.shellSort, 1000)))
+    print("média de tempo de quickSort  {:.16f} segundos".format(Analisa.calculaTempo(Classe.quickSort, 1000)))
+    print("média de tempo de bubbleSort {:.16f} segundos".format(Analisa.calculaTempo(Classe.bubbleSort, 1000)))
+    print("média de tempo de selectSort {:.16f} segundos".format(Analisa.calculaTempo(Classe.selectSort, 1000)))
+    print("média de tempo de insertSort {:.16f} segundos".format(Analisa.calculaTempo(Classe.insertSort, 1000)))

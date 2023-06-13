@@ -42,17 +42,38 @@ class Classe:
                 lista[k] = right[j]
                 j += 1
 
-        return
+        return lista
+        
+    def shellSort(vetor):
+        h = 1
+        n = len(vetor)
+        while h > 0:
+                for i in range(h, n):
+                    c = vetor[i]
+                    j = i
+                    while j >= h and c < vetor[j - h]:
+                        vetor[j] = vetor[j - h]
+                        j = j - h
+                        vetor[j] = c
+                h = int(h / 2.2)
+        return vetor
         
         
-        
-        
-        
-        
-        
-        
-        
-        
+    def quickSort(vetor, ini=0, fim=None):
+        fim = fim if fim is not None else len(vetor)
+        if ini < fim:
+            pp = Classe.particao(vetor, ini, fim)
+            Classe.quickSort(vetor, ini, pp)
+            Classe.quickSort(vetor, pp + 1, fim)
+        return vetor
+
+    def particao(vetor, ini, fim):
+        pivo = vetor[fim - 1]
+        for i in range(ini, fim):
+            if vetor[i] <= pivo:
+                vetor[i], vetor[ini] = vetor[ini], vetor[i]
+                ini += 1
+        return ini - 1
         
     def bubbleSort(vetor):
         qtd=len(vetor)
@@ -63,7 +84,7 @@ class Classe:
                     aux = vetor[j]
                     vetor[j] = vetor[j+1]
                     vetor[j+1] = aux  
-        return
+        return vetor
     
     def selectSort(vetor):
         qtd=len(vetor)
@@ -79,7 +100,7 @@ class Classe:
                 aux = vetor[i]
                 vetor[i] = vetor[menor]
                 vetor[menor] = aux
-        return
+        return vetor
     
     def insertSort(vetor):
         qtd=len(vetor)
@@ -90,4 +111,4 @@ class Classe:
                 vetor[j+1] = vetor[j]
                 j-=1
             vetor[j+1] = marcado
-        return
+        return vetor
