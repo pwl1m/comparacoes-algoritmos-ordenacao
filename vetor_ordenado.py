@@ -24,14 +24,14 @@ class vetorOrdenado:
       if self._valores[i]>n:
 # apos encontrar o primeiro vaor maior que N, move todos os valores posteriores para a direita
         for y in range(self._ultimaP-1, i, -1):
-          self._valores[y] = self._valores[y-1]
+          self._valores[y] = self._valores[y+1]
 # insere N no espaço onde estava o primeiro valor maior que N e aumenta a ultima posição valida, apos isso retorna para parar o laço
         self._ultimaP+=1
         self._valores[i] = n
         return
 # se o vetor estiver vazio o valor é inserido na primeira posição disponivel (0)
     self._ultimaP+=1
-    self._valores[self._ultimaP-1] = n
+    self._valores[self._ultimaP] = n
     return
   
   def insereOrdenado(valores):
