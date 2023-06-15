@@ -1,6 +1,7 @@
 import numpy as np
 import time
 from vetor_ordenado import vetorOrdenado as v_o
+import numpy as np  # Para se trabalhar com computação numérica.
 
 class Analisa:
     def geraAleatorio(n):
@@ -15,7 +16,7 @@ class Analisa:
                 vetor = Analisa.geraAleatorio(n)
                 algoritmo(vetor)
                 totalTime += time.time() - start
-            return totalTime
+            return totalTime / repeticoes
         
     def criaOrdenado(n, repeticoes = 1000):
         totalTime = 0
