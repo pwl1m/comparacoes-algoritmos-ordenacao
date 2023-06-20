@@ -1,30 +1,39 @@
 import numpy as np
 import time
-from vetor_ordenado import vetorOrdenado as v_o
-import numpy as np  # Para se trabalhar com computação numérica.
+
 
 class Analisa:
-    def geraAleatorio(n):
-        #vetor aleatório de N poisções com valores entre 0 e 999 é gerado
-        vetor = np.random.randint(1000, size=n)
-        return vetor
+    vetor = None  # Variável de classe para armazenar o vetor gerado
 
-    def calculaTempo(algoritmo, n, repeticoes = 1000):
-            totalTime = 0
-            for i in range(repeticoes):
-                start = time.time()
-                vetor = Analisa.geraAleatorio(n)
-                algoritmo(vetor)
-                totalTime += time.time() - start
-            return totalTime / repeticoes
-        
-    def criaOrdenado(n, repeticoes = 1000):
+    @classmethod
+    def geraAleatorio(cls, n):
+        if cls.vetor is None:  # Verifica se o vetor já foi gerado
+            # Vetor aleatório de N posições com valores entre 0 e 999 é gerado
+            cls.vetor = np.random.randint(1000, size=n)
+        return cls.vetor
+
+    @classmethod
+    def calculaTempo(cls, algoritmo, n, repeticoes=1000):
         totalTime = 0
         for i in range(repeticoes):
             start = time.time()
-            vetor = v_o(n)
-            valores = Analisa.geraAleatorio(n)
+            vetor = cls.geraAleatorio(n)
+            algoritmo(vetor)
+            totalTime += time.time() - start
+        return totalTime / repeticoes
+
+    @classmethod
+    def criaOrdenado(cls, n, repeticoes=1000):
+        totalTime = 0
+        vetor = v_o(n)
+        valores = cls.geraAleatorio(n)
+        for i in range(repeticoes):
+            start = time.time()
             for j in range(len(valores)):
                 vetor.insere(valores[j])
-                totalTime+= time.time() - start
+            totalTime += time.time() - start
         return totalTime / repeticoes
+
+def v_o(n):
+    # Implemente a função v_o de acordo com a sua lógica
+    pass
