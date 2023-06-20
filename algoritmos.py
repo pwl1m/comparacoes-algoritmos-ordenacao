@@ -1,7 +1,6 @@
 def mergesort(lista, inicio=0, fim=None): 
     if fim is None: 
         fim = len(lista) 
-
     if fim - inicio > 1:
         meio = (fim + inicio) // 2
         mergesort(lista, inicio, meio) 
@@ -26,9 +25,7 @@ def merge(lista, inicio, meio, fim):
         else:
             lista[k] = right[j]
             j += 1
-
         return lista
-
 
 def shellSort(vetor):
     n = len(vetor)
@@ -46,10 +43,8 @@ def shellSort(vetor):
 def quickSort(vetor):
     if len(vetor) <= 1:
         return vetor
-
     pivo = vetor[len(vetor) // 2]
     menores, iguais, maiores = [], [], []
-
     for elemento in vetor:
         if elemento < pivo:
             menores.append(elemento)
@@ -57,7 +52,6 @@ def quickSort(vetor):
             maiores.append(elemento)
         else:
             iguais.append(elemento)
-
     return quickSort(menores) + iguais + quickSort(maiores)
 
 def bubbleSort(vetor):
@@ -70,7 +64,7 @@ def bubbleSort(vetor):
                     vetor[j] = vetor[j+1]
                     vetor[j+1] = aux  
         return vetor
-    
+
 def selectSort(vetor):
         qtd=len(vetor)
         # laço externo definindo o menor número como o elemento da primeira posição
@@ -86,7 +80,7 @@ def selectSort(vetor):
                 vetor[i] = vetor[menor]
                 vetor[menor] = aux
         return vetor
-    
+
 def insertSort(vetor):
     for i in range(1, len(vetor)):
         chave = vetor[i]
