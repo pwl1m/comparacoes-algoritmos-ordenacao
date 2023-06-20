@@ -1,5 +1,1 @@
-.sem_comentario.py
-.none.py
-.analisa_dados.py
-.main.py
-.vetor_ordenado.py
+ignore/*
